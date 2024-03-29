@@ -5,6 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@directus/sdk':
+    specifier: ^15.0.3
+    version: 15.0.3
+  '@solidjs/router':
+    specifier: ^0.13.1
+    version: 0.13.1(solid-js@1.8.11)
   solid-js:
     specifier: ^1.8.11
     version: 1.8.11
@@ -386,6 +392,17 @@ packages:
       '@babel/helper-validator-identifier': 7.22.20
       to-fast-properties: 2.0.0
     dev: true
+
+  /@directus/sdk@15.0.3:
+    resolution: {integrity: sha512-Z6n1YaXSMSQuYH6ENG1W4lcpyPgfwRzBpEJOXeknAnJlneLeV/+iNtCB8WxjnH8D73Sv72peRLKMQtr/SZDz7Q==}
+    engines: {node: '>=18.0.0'}
+    dependencies:
+      '@directus/system-data': 1.0.1
+    dev: false
+
+  /@directus/system-data@1.0.1:
+    resolution: {integrity: sha512-sm2gO9SUcRle5rCsmS4qby2K8OfvewnU9/Iao7brGyexLjXDrvfxBB2danNWVLw1qE+UrLX/R+caVrxQ4ZaMkw==}
+    dev: false
 
   /@esbuild/aix-ppc64@0.19.11:
     resolution: {integrity: sha512-FnzU0LyE3ySQk7UntJO4+qIiQgI7KoODnZg5xzXIrFJlKd2P2gwHsHY4927xj9y5PJmJSzULiUCWmv7iWnNa7g==}
@@ -916,6 +933,14 @@ packages:
     dependencies:
       solid-js: 1.8.11
     dev: true
+
+  /@solidjs/router@0.13.1(solid-js@1.8.11):
+    resolution: {integrity: sha512-Rz5Lf0ssWMuN+Wm2GFO0vwZoO/KSwYFSuCUzWrRAvje5M0ZYZrMk5FZxuzdJT+zg8KuqWJQlRALks5E0r+FjAA==}
+    peerDependencies:
+      solid-js: ^1.8.6
+    dependencies:
+      solid-js: 1.8.11
+    dev: false
 
   /@types/babel__core@7.20.5:
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}

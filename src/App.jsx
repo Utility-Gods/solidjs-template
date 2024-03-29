@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import styles from './App.module.css';
+import { createEffect } from "solid-js";
 
-function App() {
+import { createAsync } from "@solidjs/router";
+
+import { getGlobals } from "/src/libs/directus.js";
+
+export const route = {
+  load: () => getGlobals(),
+};
+
+export default function Home() {
   return (
-    <div class={styles.App}>
-      <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
-        <p>
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-      </header>
-    </div>
+    <main>
+      <Show>{(info) => <h1>{info().name}</h1>}</Show>
+      <Show>{(info) => <strong>{info().description}</strong>}</Show>
+      LOADING
+    </main>
   );
 }
-
-export default App;
