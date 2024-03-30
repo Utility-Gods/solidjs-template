@@ -1,27 +1,53 @@
-import type { Component } from 'solid-js';
+import { A, createAsync } from "@solidjs/router";
+import { For, Show, createEffect } from "solid-js";
 
-import logo from './logo.svg';
-import styles from './App.module.css';
+const fetch_articles = async () => {
+  const requestOptions: RequestInit = {
+    method: "GET",
+    redirect: "follow",
+  };
 
-const App: Component = () => {
-  return (
-    <div class={styles.App}>
-      <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-      </header>
-    </div>
-  );
+  const articles = await fetch(
+    "https://directus.newsitnowcms.orb.local/items/Articles",
+    requestOptions
+  )
+    .then((response) => response.json())
+    .catch((error) => console.log("error", error));
+
+  console.log({ articles });
+  return articles;
 };
 
-export default App;
+export const route = {
+  load: () => fetch_articles,
+};
+
+export default function PostsList() {
+  const list = createAsync(fetch_articles);
+
+  createEffect(() => {
+    console.log({ list: list() });
+  });
+
+  return (
+    <Show when={list()}>
+      {(data) => (
+        <ul>
+          {JSON.stringify(data().data)}
+          <For each={data().data}>
+            {(post) => (
+              <li>
+                {JSON.stringify(post)}
+                <h2>{post.id}</h2>
+
+                <span>
+                  {post.user_created} &bull; {post.collection_id}
+                </span>
+              </li>
+            )}
+          </For>
+        </ul>
+      )}
+    </Show>
+  );
+}

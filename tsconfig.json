@@ -10,6 +10,13 @@
     "jsxImportSource": "solid-js",
     "types": ["vite/client"],
     "noEmit": true,
-    "isolatedModules": true
-  }
+    "isolatedModules": true,
+    "baseUrl": ".",
+    "paths": {
+      "@lib": ["./src/lib"],
+      "@lib/*": ["./src/lib/*"]
+    },
+    "rootDirs": ["."]
+  },
+  "exclude": ["./node_modules/**"]
 }
