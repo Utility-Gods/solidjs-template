@@ -1,7 +1,8 @@
 {
-  "name": "vite-template-solid",
+  "name": "newsitnow-fe",
   "version": "0.0.0",
-  "description": "",
+  "description": "front-end for news it now CMS",
+  "author": "admin@utilitygods.com",
   "scripts": {
     "start": "vite",
     "dev": "vite",
@@ -11,12 +12,11 @@
   "license": "MIT",
   "devDependencies": {
     "solid-devtools": "^0.29.2",
+    "typescript": "^5.3.3",
     "vite": "^5.0.11",
     "vite-plugin-solid": "^2.8.2"
   },
   "dependencies": {
-    "@directus/sdk": "^15.0.3",
-    "@solidjs/router": "^0.13.1",
     "solid-js": "^1.8.11"
   }
 }
