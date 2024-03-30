@@ -1,5 +1,6 @@
 import { A, createAsync } from "@solidjs/router";
 import { For, Show, createEffect } from "solid-js";
+import { Button } from "@components/ui/button";
 
 const fetch_articles = async () => {
   const requestOptions: RequestInit = {
@@ -32,8 +33,8 @@ export default function PostsList() {
   return (
     <Show when={list()}>
       {(data) => (
-        <ul>
-          {JSON.stringify(data().data)}
+        <ul class="p-6 text-red-800 font-bold">
+          <Button variant="destructive">Click me</Button>
           <For each={data().data}>
             {(post) => (
               <li>
